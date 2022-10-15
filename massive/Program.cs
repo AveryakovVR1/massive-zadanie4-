@@ -1,39 +1,54 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-int[] mas = new int[100];
-Random rnd = new Random(DateTime.Now.Millisecond);
-
-int i;
-for (i = 0; i < mas.Length; i++)
+namespace ConsoleApp4
 {
-    int x = rnd.Next(1001);
-    mas[i] = rnd.Next(2) == 0 ? x : -x;
-}
-
-Console.WriteLine("чётные числа:");
-for (i = 0; i < mas.Length; i++)
-{
-    if (mas[i] % 2 == 0)
+    class Program
     {
-        Console.Write(mas[i] + ", ");
+        static void Main(string[] args)
+        {
+            int[] M = new int[100];
+            Random rand = new Random(DateTime.Now.Millisecond);
+
+
+            for (var x = 0; x < M.Length; x++)
+            {
+                M[x] = rand.Next(-1000, 1001);
+            }
+            for (var x = 0; x < M.Length; x++)
+            {
+                if (M[x] % 2 == 0)
+              
+                {
+                    Console.Write(M[x] + ", ");
+                   
+                }
+                
+            }
+            Console.WriteLine();
+            for (var x = 0; x < M.Length; x++)
+            {
+                M[x] = rand.Next(-1000, 1001);
+            }
+            Console.WriteLine();
+            for (var x = 0; x < M.Length; x++)
+            {
+                if (M[x] % 3 == 0)
+                {
+                    Console.Write(M[x] + ", ");
+                }
+
+            }
+            int sum = 0;
+            for (var x = 0; x < M.Length; x++)
+            {
+                if (M[x] < 0) sum = sum + M[x];
+                    
+            }
+            Console.Write(M[x] + ", ");
+        }
     }
 }
-Console.WriteLine("\nчисла кратные 3");
-for (i = 0; i < mas.Length; i++)
-{
-    if (mas[i] % 3 == 0)
-    {
-        Console.Write(mas[i] + ", ");
-    }
-}
-Console.WriteLine("\nСумма всех отрицательных чисел");
-
-int count = 0;
-for (i = 0; i < mas.Length; i++)
-{
-    if (mas[i] < 0)
-    {
-        count += mas[i];
-    }
-}
-Console.Write(count);
